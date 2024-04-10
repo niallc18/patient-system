@@ -27,7 +27,7 @@ class PatientsController < ApplicationController
       if @patient.save
         redirect_to @patient, notice: 'Patient was successfully created.'
       else
-        render :new
+        render :new, status: :unprocessable_entity
       end
     end
   
@@ -46,6 +46,12 @@ class PatientsController < ApplicationController
       redirect_to patients_url, notice: 'Patient was successfully destroyed.'
     end
   
+    def patient_stats
+      authorize :patient, :patient_stats?
+      patient_creations_by_day = Patient.group("DATE(created_at)").count
+      @patient_creations_data = patient_creations_by_day.map { |date, count| [date.to_s, count] }
+    end
+
     private
   
     def set_patient

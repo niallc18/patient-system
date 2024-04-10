@@ -20,15 +20,19 @@ class PatientPolicy < ApplicationPolicy
     end
   
     def create?
-      user.receptionist?
+      user.doctor? || user.receptionist?
     end
   
     def update?
-      user.receptionist?
+      user.doctor? || user.receptionist?
     end
   
     def destroy?
-      user.receptionist?
+      user.doctor?
+    end
+
+    def patient_stats?
+      user.doctor?
     end
   end
   

@@ -1,0 +1,8 @@
+<div class="my-8 w-full">
+  <header class="text-center p-4 bg-gray-100">
+  <h1 class="font-bold text-4xl">Patient Stats</h1>
+  </header>
+  <div class="w-full" data-controller="dashboard" data-dashboard-patient-creations-value="<%= @patient_creations_data.to_json %>">
+    <canvas id="patientCreationsChart"></canvas>
+  </div>
+</div>

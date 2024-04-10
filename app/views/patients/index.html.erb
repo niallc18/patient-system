@@ -21,6 +21,9 @@
             <th scope="col" class="text-sm font-medium text-gray-800 px-6 py-4 text-left">
               Date of Birth
             </th>
+            <th scope="col" class="text-sm font-medium text-gray-800 px-6 py-4 text-left">
+              Gender
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -41,6 +44,9 @@
               </td>
               <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
                 <%= patient.dob %>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
+                <%= patient.gender %>
               </td>
             </tr>
           <% end %>

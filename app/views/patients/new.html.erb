@@ -1,9 +1,20 @@
-<!-- app/views/patients/new.html.erb -->
-
 <header class="text-center p-4 bg-gray-100">
-<h1 class="font-bold text-4xl">New Patient</h1>
+  <h1 class="font-bold text-4xl">New Patient</h1>
 </header>
 
-<%= render 'form', patient: @patient %>
+<%= form_for(@patient) do |f| %>
+    <% if @patient.errors.any? %>
+    <div id="error_explanation" class="text-red-500 font-bold">
+      <h2><%= pluralize(@patient.errors.count, "error") %> prohibited this patient from being saved:</h2>
+      <ul>
+      <% @patient.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<%= link_to 'Cancel', patients_path, class: "custom-link" %>
+  <%= render 'form', f: f %>
+
+  <%= link_to 'Cancel', patients_path, class: "custom-link" %>
+<% end %>
