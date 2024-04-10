@@ -1,0 +1,9 @@
+<!-- app/views/patients/new.html.erb -->
+
+<header class="text-center p-4 bg-gray-100">
+<h1 class="font-bold text-4xl">New Patient</h1>
+</header>
+
+<%= render 'form', patient: @patient %>
+
+<%= link_to 'Cancel', patients_path, class: "custom-link" %>
