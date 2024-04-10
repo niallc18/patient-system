@@ -1,0 +1,47 @@
+<!-- app/views/patients/show.html.erb -->
+
+<div class="w-full">
+
+  <header class="text-center p-4 bg-gray-100">
+    <h1 class="font-bold text-4xl">Patient Details</h1>
+  </header>
+
+  <div class="mx-4 my-8"> 
+    <div class="rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer mb-4">
+      <%= link_to "Edit Patient", edit_patient_path(@patient) %>
+    </div>
+    
+    <% if policy(Patient.new).destroy? %>
+      <div class="rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer mb-4">
+      <%= link_to "Delete", patient_path(@patient), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+      </div>
+    <% end %>
+
+    <div class="bg-white shadow overflow-hidden sm:rounded-lg">
+      <div class="px-4 py-5 sm:px-6">
+        <h3 class="text-lg font-medium leading-6 text-gray-900">Patient: <%= (@patient.first_name).capitalize + " " + (@patient.last_name).capitalize %></h3>
+        <p class="mt-1 max-w-2xl text-sm text-gray-500">Details about the patient.</p>
+      </div>
+      <div class="border-t border-gray-200">
+        <dl>
+          <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt class="text-sm font-medium text-gray-500">ID</dt>
+            <dd class="mt-1 text-sm text-gray-900 sm:col-span-2"><%= @patient.id %></dd>
+          </div>
+          <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt class="text-sm font-medium text-gray-500">First Name</dt>
+            <dd class="mt-1 text-sm text-gray-900 sm:col-span-2"><%= @patient.first_name %></dd>
+          </div>
+          <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt class="text-sm font-medium text-gray-500">Last Name</dt>
+            <dd class="mt-1 text-sm text-gray-900 sm:col-span-2"><%= @patient.last_name %></dd>
+          </div>
+          <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt class="text-sm font-medium text-gray-500">Date of Birth</dt>
+            <dd class="mt-1 text-sm text-gray-900 sm:col-span-2"><%= @patient.dob %></dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</div>
