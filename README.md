@@ -1,24 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Doctor + Receptionist System for patient tracking.
 
-Things you may want to cover:
+- Database: PostgreSQL
+- Backend: Rails 7
 
-* Ruby version
+- Gems: Pundit, Font-Awesome, Devise, and Rspec.
 
-* System dependencies
+## Usage
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Clone the repo and install postgreSQL db. 
+- bundle install for the gems
+- bin/rails assets:precompile for js
+- rails tailwindcss:build for tailwind
+- rails s to start the server
+- Ensure you go into the console and create the user, each user is receptionist by default, set role as 1 if you want the user to have doctor role.
