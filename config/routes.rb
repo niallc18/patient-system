@@ -10,5 +10,4 @@ Rails.application.routes.draw do
       get 'patient_stats'
     end
   end  
-  # Defines the root path route ("/")
 end
